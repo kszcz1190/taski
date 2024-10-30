@@ -1,0 +1,114 @@
+* {
+  text-decoration: none !important;
+  list-style: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+.navbar {
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  background-color: #370c2e;
+  height: 100px;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  background-color: #ffecec;
+  border-bottom-left-radius: 60px;
+  border-top-right-radius: 60px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 148px;
+  height: 71px;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: #dca0b5;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+}
+
+.header {
+  background-color: #370c2e;
+  display: flex;
+  margin: 0 auto;
+  font: bold 40px "Montserrat", sans-serif;
+  color: white;
+}
+
+.userPanel {
+  background-color: #dca0b5;
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  border: 5px solid white;
+  font-weight: bold;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.wrapper_menu {
+  background-color: #370c2e;
+  border-radius: 100px;
+}
+.dropdownMenu h3 {
+  padding: 10px;
+  text-align: center;
+  background-color: white !important;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 120px;
+  right: 10px;
+  width: 200px;
+  background-color: white;
+  border-radius: 20px;
+}
+.dropdownMenu ul,
+.dropdownMenu li,
+.dropdownMenu a {
+  padding: 10px;
+  background-color: white;
+  padding: 10px;
+  color: black !important;
+}
+.dropdownMenu li {
+  border-top: 1px solid #ccc;
+}
+.dropdownMenu li:hover,
+a:hover {
+  font-weight: bold;
+}
+
+.button_login {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  background-color: white;
+  border-radius: 100px;
+  padding: 10px;
+  border: none;
+}
+
+.button_login a {
+  background-color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 100px;
+  color: black;
+}
+.button_login a:hover {
+  color: blue;
+  font-weight: bold;
+}
+
+.dropdownMenu.inactive {
+  display: none;
+}

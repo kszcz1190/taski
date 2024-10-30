@@ -1,0 +1,54 @@
+.wrapper_Register {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+  min-width: 300px;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  background-color: #fbc7ef;
+  border-radius: 100px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.email_input,
+.password_input,
+.name_input {
+  margin: 0 10px;
+  font-size: 20px;
+  background-color: #fbc7ef;
+  color: #460e3a;
+  font-weight: bold;
+  border-radius: 100px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"],
+select {
+  padding: 7px;
+  margin: 0 10px;
+  border-radius: 100px;
+  width: 80%;
+}
+
+a.Link_login {
+  margin-left: 10px;
+  font-weight: bold;
+  background-color: #b06d7d;
+}

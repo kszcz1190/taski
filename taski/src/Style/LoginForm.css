@@ -1,0 +1,53 @@
+.wrapper_Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  color: white;
+  text-align: center;
+}
+
+.wrapper_Login h1 {
+  text-align: center;
+  padding: 20px;
+  background-color: #460e3a;
+  border-radius: 100px;
+  width: 550px;
+  height: 100px;
+}
+
+.mb-2 {
+  background-color: #fbc7ef;
+  border-radius: 100px;
+  width: 550px;
+  margin-top: 20px;
+}
+
+div.remember-forgot a {
+  text-align: center;
+  background-color: #b06d7d;
+}
+
+.login_button {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 100px;
+  background-color: #460e3a;
+  color: white;
+  font-weight: bold;
+  width: 60%;
+  border: none;
+}
+
+.login_button:hover {
+  background-color: #fbc7ef;
+  color: #460e3a;
+  font-weight: bold;
+  border: none;
+}
+
+a.Link_login {
+  margin-left: 10px;
+  font-weight: bold;
+  background-color: #b06d7d;
+}

@@ -1,0 +1,11 @@
+.wrapper_schedule {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.wrapper_schedule label {
+  color: white;
+  font-weight: bold;
+}
