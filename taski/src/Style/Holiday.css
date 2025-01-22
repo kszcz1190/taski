@@ -1,11 +1,30 @@
 .wrapper_schedule {
-  margin: 50px;
+  margin: 80px auto;
   display: flex;
-  flex-direction: column;
   justify-content: left;
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  flex-direction: column;
+  width: fit-content;
+  padding: 50px;
 }
 
 .wrapper_schedule label {
+  padding: 10px;
+  color: #b2004d;
+  font-weight: 500;
+}
+
+.react-datepicker-wrapper {
+  width: 200px;
+}
+.wrapper_schedule button {
+  border: none;
+  background-color: #b2004d;
+  border-radius: 20px;
+  padding: 10px;
   color: white;
-  font-weight: bold;
+  margin-top: 20px;
+  width: 100%;
 }

@@ -1,11 +1,13 @@
 .wrapper_Register {
   display: flex;
   justify-content: center;
+  background-color: white;
+  margin: 50px auto 0;
+  border-radius: 20px;
 }
 
 .wrapper {
   display: flex;
-  color: white;
   text-align: center;
   padding: 20px;
 }
@@ -19,7 +21,7 @@
 .wrap {
   display: flex;
   align-items: center;
-  background-color: #fbc7ef;
+  background-color: #f1dbec;
   border-radius: 100px;
   padding: 5px;
   margin-bottom: 20px;
@@ -30,7 +32,7 @@
 .name_input {
   margin: 0 10px;
   font-size: 20px;
-  background-color: #fbc7ef;
+  background-color: #f1dbec;
   color: #460e3a;
   font-weight: bold;
   border-radius: 100px;
@@ -50,5 +52,5 @@ select {
 a.Link_login {
   margin-left: 10px;
   font-weight: bold;
-  background-color: #b06d7d;
+  background-color: #f1dbec;
 }

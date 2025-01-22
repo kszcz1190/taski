@@ -1,0 +1,113 @@
+.msg-recive,
+.msg-employee {
+  margin: 50px auto 0;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+.msg-recive ul {
+  padding: 10px;
+}
+
+.msg-recive ul li {
+  border-radius: 20px;
+  padding: 10px;
+}
+.msg-recive ul li:nth-child(odd) {
+  background-color: #f0ecec;
+}
+.msg-recive ul li:nth-child(even) {
+  background-color: #f5e7d8;
+}
+.msg-recive ul li p:nth-child(2) {
+  border-bottom: 1px solid #ccc;
+}
+div.input-wrapper {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+div.results-list {
+  background-color: #f0ecec;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 250px;
+  overflow-y: auto;
+  align-items: center;
+  scroll-behavior: smooth;
+}
+div.result {
+  width: fit-content;
+}
+
+div.result:hover {
+  background-color: #f3d6b8;
+}
+
+#search-employee {
+  margin-left: 15px;
+  width: 20px;
+  height: 20px;
+}
+
+.selected-list {
+  background-color: #b19f8c;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 0 0 20px 20px;
+}
+
+.selected-item {
+  display: flex;
+}
+.selected-item:hover {
+  background-color: #f5e7d8;
+}
+
+.selected-item span,
+.selected-item button {
+  width: 50%;
+}
+
+.msg-employee form {
+  display: flex;
+  width: 100%;
+}
+.msg-employee-search {
+  background-color: #f9f9f9; /* Opcjonalne tło */
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+}
+.msg-employee-form {
+  background-color: #e9f7ff; /* Opcjonalne tło */
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.msg-employee-form label {
+  display: block;
+  margin: 10px 0;
+}
+
+button.button-delete {
+  margin-left: 10px;
+  background-color: red;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border: none;
+  color: white;
+  width: 20px;
+  height: 20px;
+}
+
+textarea#textarea {
+  width: 100%;
+}

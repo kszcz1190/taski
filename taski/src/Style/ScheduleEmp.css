@@ -1,0 +1,65 @@
+.wraper_schedule_emp {
+  margin: 50px auto;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+
+  width: fit-content;
+  list-style: none;
+  text-decoration: none;
+}
+
+.first_section {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.date_schedule {
+  border-bottom: 1px solid #b4277e;
+}
+
+.date_schedule p:first-child {
+  font-weight: bold;
+}
+.date_schedule p:last-child {
+  color: #b4277e;
+  font-size: larger;
+}
+.day-schedule {
+  border: 1px groove #b4277e;
+  padding: 20px;
+}
+p.colleagues {
+  font-size: small;
+}
+.colleagues div {
+  font-size: small;
+}
+p.machine_name {
+  font-weight: bold;
+}
+.schedule_details {
+  width: 100%;
+}
+.daily_schedule {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.daily_schedule h3 {
+  color: #b4277e;
+  margin-top: 20px;
+}
+.second_section {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.position_order {
+  color: #b4277e;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}

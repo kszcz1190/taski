@@ -1,59 +1,73 @@
 import "./Style/index.css";
-import "./Style/App.css";
-import PropTypes from "prop-types";
-import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LoginForm from "./Components/LoginForm";
 import RegisterForm from "./Components/RegisterForm";
-import LogReg from "./Components/LogReg";
 import HolidayEmployee from "./Components/HolidayEmployee";
-import HolidaySupervisor from "./Components/HolidaySupervisor";
 import Layout from "./Layout";
-import HomeEmployee from "./Components/HomeEmployee";
-import HomeSupervisor from "./Components/HomeSupervisor";
-import WorkScheduleSupervisor from "./Components/WorkScheduleSupervisor";
 import WorkScheduleEmployee from "./Components/WorkScheduleEmployee";
+import ScheduleList from "./Components/ScheduleList";
+import SupervisorSetup from "./Components/SupervisorSetup";
+import WorkHistory from "./Components/WorkHistory";
+import MyProfile from "./Components/MyProfile";
+import Settings from "./Components/Settings";
+import Msg from "./Components/Msg";
+import MsgRecive from "./Components/MsgRecive";
+import VerifyEmail from "./Components/VerifyEmail";
+import ChangePassword from "./Components/ChangePassword";
+import { useUser } from "./UserContext";
+import EmpList from "./Components/EmpList";
+import EmpDetails from "./Components/EmpDetails";
+import Queue from "./Components/Queue";
+import SendCodeEmail from "./Components/SendCodeEmail";
 
 function App() {
-  const [userRole, setUserRole] = useState(null);
-  useEffect(() => {
-    const role = localStorage.getItem("userRole");
-    setUserRole(role);
-  }, []);
-
-  const PrivateRoute = ({ children, role }) => {
-    return userRole === role ? children : <Navigate to="/LoginForm" />;
-  };
-  PrivateRoute.propTypes = {
-    children: PropTypes.node.isRequired, // children może być dowolnym węzłem React
-    role: PropTypes.string.isRequired, // role powinna być stringiem
-  };
+  const { user } = useUser(); // Pobieranie informacji o zalogowanym użytkowniku
+  const userRole = user?.role;
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<LogReg />}></Route>
-            <Route path="/LoginForm" element={<LoginForm />}></Route>
-            <Route path="/RegisterForm" element={<RegisterForm />}></Route>
-            <Route path="/HomeEmployee" element={<HomeEmployee />} />
-            <Route path="/HomeSupervisor" element={<HomeSupervisor />} />
-            <Route path="/HolidayEmployee" element={<HolidayEmployee />} />
-            <Route path="/HolidaySupervisor" element={<HolidaySupervisor />} />
-            <Route
-              path="/WorkScheduleEmployee"
-              element={<WorkScheduleEmployee />}
-            />
-            <Route
-              path="/WorkScheduleSupervisor"
-              element={<WorkScheduleSupervisor />}
-            />
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          {/* Jeśli użytkownik jest zalogowany, przekieruj na WorkScheduleEmployee */}
+          <Route
+            path="/"
+            element={
+              user ? (
+                userRole == 1 ? (
+                  <Navigate to="/WorkScheduleEmployee" replace />
+                ) : (
+                  <Navigate to="/ScheduleList" replace />
+                )
+              ) : (
+                <LoginForm />
+              )
+            }
+          />
+          <Route path="/LoginForm" element={<LoginForm />} />
+          <Route path="/RegisterForm" element={<RegisterForm />} />
+          <Route path="/HolidayEmployee" element={<HolidayEmployee />} />
+          <Route
+            path="/WorkScheduleEmployee"
+            element={<WorkScheduleEmployee />}
+          />
+          <Route path="/ScheduleList" element={<ScheduleList />} />
+          <Route path="/SupervisorSetup" element={<SupervisorSetup />} />
+          <Route path="/WorkHistory" element={<WorkHistory />} />
+          <Route path="/MyProfile" element={<MyProfile />} />
+          <Route path="/Settings" element={<Settings />} />
+          <Route path="/Messages" element={<Msg />} />
+          <Route path="/MsgRecive" element={<MsgRecive />} />
+          <Route path="/VerifyEmail" element={<VerifyEmail />} />
+          <Route path="/ChangePassword" element={<ChangePassword />} />
+          <Route path="/DataEmployees" element={<EmpList />} />
+          <Route path="/EmpDetails" element={<EmpDetails />} />
+          <Route path="/Queue" element={<Queue />} />
+          <Route path="SendCode" element={<SendCodeEmail />} />
 
-            <Route path="*" element={<Navigate to="/LoginForm" />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </>
+          {/* Domyślne przekierowanie dla niezdefiniowanych ścieżek */}
+          <Route path="*" element={<Navigate to="/LoginForm" />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

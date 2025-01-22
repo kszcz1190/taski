@@ -1,3 +1,43 @@
-.machine {
-  margin: 20px;
+.wrapper_schedule_supervisor {
+  background-color: white;
+  margin: 50px auto 0;
+  border-radius: 20px;
+}
+
+.schedule-part-first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 50px auto 0;
+  border-radius: 20px;
+}
+.schedule-part-second {
+  display: flex;
+}
+.schedule-table-supervisor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.schedule-table-supervisor button {
+  width: 70%;
+  margin: 10px;
+}
+
+.form-data {
+  display: flex;
+}
+
+.no-assigments ul {
+  height: 150px;
+  overflow-y: auto;
+}
+.btn-schedule {
+  display: block;
+}
+.machine-section h4 {
+  background-color: #f1dbec;
+  border-radius: 20px;
+  padding: 10px;
 }

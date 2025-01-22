@@ -1,0 +1,29 @@
+.schedule-list {
+  margin: 50px auto 0;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.schedule-table {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.schedule-section {
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fdf9f9;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule-section h2 {
+  color: #b2004d;
+  font-weight: 300;
+}

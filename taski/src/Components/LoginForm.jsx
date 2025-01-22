@@ -1,7 +1,5 @@
 import "../Style/LoginForm.css";
-import { Link, useNavigate } from "react-router-dom";
-import { FaUser } from "react-icons/fa";
-import { FaLock } from "react-icons/fa";
+import { useNavigate, Link } from "react-router-dom";
 import Validation from "./LoginValidation";
 import { useState } from "react";
 import axios from "axios";
@@ -11,10 +9,10 @@ const LoginForm = () => {
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
-
-  const [errors, setErrors] = useState({});
 
   const handleInput = (event) => {
     setValues((prev) => ({
@@ -25,29 +23,50 @@ const LoginForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (!values.email.trim() || !values.password.trim()) {
+      setErrors({
+        email: "Email is required",
+        password: "Password is required",
+      });
+      return;
+    }
+
     const validationErrors = Validation(values);
     setErrors(validationErrors);
 
     if (!validationErrors.email && !validationErrors.password) {
+      setLoading(true); // Start loading
       axios
         .post("http://localhost:5000/login", values)
         .then((res) => {
-          console.log("Response received:", res.data);
-          if (res.data.Status === "Success") {
-            const userRole = res.data.role;
-            localStorage.setItem("userRole", userRole);
-            if (userRole === "superuser") {
-              navigate("/HomeSupervisor");
-            } else {
-              navigate("/HomeEmployee");
+          console.log("Response data:", res.data);
+
+          setLoading(false); // Stop loading
+          if (res.data.success) {
+            console.log("res.data", res.data);
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("userId", res.data.userId);
+            if (parseInt(res.data.role) === 1) {
+              navigate("/WorkScheduleEmployee");
+              window.location.reload();
+            } else if (parseInt(res.data.role) === 2) {
+              navigate("/ScheduleList");
+              window.location.reload();
             }
           } else {
-            alert("No record exists");
+            setErrors((prev) => ({
+              ...prev,
+              server: res.data.error || "Unknown error",
+            }));
           }
         })
         .catch((err) => {
-          console.error("Axios error:", err);
-          alert("Login failed");
+          setLoading(false); // Stop loading on error
+          setErrors((prev) => ({
+            ...prev,
+            server:
+              "Login failed: " + (err.response?.data?.error || "Unknown error"),
+          }));
         });
     }
   };
@@ -55,58 +74,38 @@ const LoginForm = () => {
   return (
     <div className="wrapper_Login">
       <form action="" onSubmit={handleSubmit}>
-        <h1>Login</h1>
         <div className="mb-2">
-          <FaUser className="icon" />
-          <label htmlFor="email" className="email_input">
-            Email
-          </label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             placeholder="Email"
             onChange={handleInput}
             name="email"
           />
-          <span>
-            {errors.email && (
-              <span className="text-danger"> {errors.email}</span>
-            )}
-          </span>
+          {errors.email && <span className="text-danger">{errors.email}</span>}
         </div>
         <div className="mb-2">
-          <FaLock className="icon" />
-          <label htmlFor="password" className="password_input">
-            Password
-          </label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             placeholder="Password"
             onChange={handleInput}
             name="password"
           />
-          <span>
-            {errors.password && (
-              <span className="text-danger"> {errors.password}</span>
-            )}
-          </span>
+          {errors.password && (
+            <span className="text-danger">{errors.password}</span>
+          )}
         </div>
-        <div className="remember-forgot">
-          <a href="#"> Forgot password</a>
-        </div>
-        <button type="submit" className="login_button">
-          Log in
+        {errors.server && <span className="text-danger">{errors.server}</span>}
+        <button
+          type="submit"
+          className="btn btn-dark btn-lg "
+          disabled={loading}
+        >
+          {loading ? "Logging in..." : "Log in"}
         </button>
-        <label htmlFor="create_account">
-          Don&apos;t have an account{" "}
-          <Link
-            to={"/RegisterForm"}
-            type="create_account"
-            className="Link_login"
-          >
-            CREATE ACCOUNT
-          </Link>
-        </label>
       </form>
+      <Link to="/VerifyEmail">Resetuj hasło</Link>
     </div>
   );
 };

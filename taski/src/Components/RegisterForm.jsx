@@ -6,16 +6,16 @@ import axios from "axios";
 
 const RegisterForm = () => {
   const [values, setValues] = useState({
-    name: "",
-    surname: "",
+    first_name: "",
+    last_name: "",
     email: "",
     phone: "",
-    bankAccount: "",
-    pesel: "",
+    bank_account: "",
+    date_of_birth: "",
     password: "",
     shift_id: "",
-    roles_id: "",
-    departments_id: "",
+    role_id: "",
+    dept_id: "",
   });
   const navigate = useNavigate();
 
@@ -66,35 +66,37 @@ const RegisterForm = () => {
       <form action="" onSubmit={handleSubmit} className="wrapper">
         <div className="column">
           <div className="wrap ">
-            <label htmlFor="name" className="name_input">
+            <label htmlFor="first_name" className="name_input">
               Name
             </label>
             <input
               type="text"
-              placeholder="Name"
-              name="name"
+              placeholder="First name"
+              name="first_name"
               onChange={handleInput}
-              value={values.name}
+              value={values.first_name}
             />
           </div>
           <span>
-            {errors.name && <span className="text-danger"> {errors.name}</span>}
+            {errors.first_name && (
+              <span className="text-danger"> {errors.first_name}</span>
+            )}
           </span>
           <div className="wrap ">
-            <label htmlFor="surname" className="name_input">
+            <label htmlFor="last_name" className="name_input">
               Surname
             </label>
             <input
               type="text"
               placeholder="Surname"
-              name="surname"
+              name="last_name"
               onChange={handleInput}
-              value={values.surname}
+              value={values.last_name}
             />
           </div>
           <span>
-            {errors.surname && (
-              <span className="text-danger"> {errors.surname}</span>
+            {errors.last_name && (
+              <span className="text-danger"> {errors.last_name}</span>
             )}
           </span>
           <div className="wrap ">
@@ -132,37 +134,36 @@ const RegisterForm = () => {
             )}
           </span>
           <div className="wrap ">
-            <label htmlFor="bankAccount" className="name_input">
+            <label htmlFor="bank_account" className="name_input">
               Bank Account
             </label>
             <input
               type="text"
               placeholder="Bank Account Number"
               onChange={handleInput}
-              name="bankAccount"
-              value={values.bankAccount}
+              name="bank_account"
+              value={values.bank_account}
             />
           </div>
           <span>
-            {errors.bankAccount && (
-              <span className="text-danger"> {errors.bankAccount}</span>
+            {errors.bank_account && (
+              <span className="text-danger"> {errors.bank_account}</span>
             )}
           </span>
           <div className="wrap ">
-            <label htmlFor="pesel" className="name_input">
-              Pesel
+            <label htmlFor="date_of_birth" className="name_input">
+              Date of birth
             </label>
             <input
-              type="text"
-              placeholder="Pesel"
+              type="date"
               onChange={handleInput}
-              name="pesel"
-              value={values.pesel}
+              name="date_of_birth"
+              value={values.date_of_birth}
             />
           </div>
           <span>
-            {errors.pesel && (
-              <span className="text-danger"> {errors.pesel}</span>
+            {errors.date_of_birth && (
+              <span className="text-danger"> {errors.date_of_birth}</span>
             )}
           </span>
           <div className="wrap ">
@@ -186,7 +187,7 @@ const RegisterForm = () => {
         {/* {Shift} */}
         <div className="column">
           <div className="wrap">
-            <label htmlFor="shift_id" className="name_input">
+            <label htmlFor="id_shift" className="name_input">
               Shift
             </label>
             <select
@@ -195,42 +196,42 @@ const RegisterForm = () => {
               value={values.shift_id}
             >
               <option value=""> Select Shift</option>
-              {shifts.map((shift) => (
-                <option key={shift.id_shifts} value={shift.id_shifts}>
-                  {shift.shift_name}
+              {shifts.map((shifts) => (
+                <option key={shifts.id_shift} value={shifts.id_shift}>
+                  {shifts.shift_name}
                 </option>
               ))}
             </select>
           </div>
           <div className="wrap ">
-            <label htmlFor="roles_id" className="name_input">
+            <label htmlFor="id_role" className="name_input">
               Role
             </label>
             <select
               type="number"
               placeholder="Role"
               onChange={handleInput}
-              name="roles_id"
-              value={values.roles_id}
+              name="role_id"
+              value={values.role_id}
             >
               <option value="">Select Role</option>
               {roles.map((role) => (
-                <option key={role.id_roles} value={role.id_roles}>
+                <option key={role.id_role} value={role.id_role}>
                   {role.role_name}
                 </option>
               ))}
             </select>
           </div>
           <div className="wrap ">
-            <label htmlFor="departments_id" className="name_input">
+            <label htmlFor="id_dept" className="name_input">
               Department
             </label>
             <select
               type="number"
               placeholder="Departments"
               onChange={handleInput}
-              name="departments_id"
-              value={values.departments_id}
+              name="dept_id"
+              value={values.dept_id}
             >
               <option value="">Select Department</option>
               {departments.map((department) => (
@@ -240,7 +241,10 @@ const RegisterForm = () => {
               ))}
             </select>
           </div>
-          <button className="login_button" type="submit">
+          <button
+            className="btn btn-outline-dark btn-lg btn-block"
+            type="submit"
+          >
             Create Account
           </button>
         </div>

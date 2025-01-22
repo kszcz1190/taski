@@ -1,0 +1,28 @@
+.table-emp-list,
+.emp-details-wrapper {
+  margin: 50px auto 0;
+  background-color: rgba(255, 255, 255, 0.753);
+  border-radius: 20px;
+  padding: 50px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.table-emp-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-emp-list table tr {
+  border-bottom: 1px solid #ddd2d2;
+}
+.table-emp-list table th {
+  background-color: #ddd2d2;
+  color: black;
+  padding: 10px;
+}
+.emp-details-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}

@@ -4,12 +4,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #b06d7d;
 }
 body {
   font-family: "Poppins", sans-serif;
   justify-content: center;
-  background-color: #b06d7d;
+  background-image: url("../image/lody.jpg");
+  background-size: cover; /* Aby tło wypełniało całą stronę */
+  background-position: center; /* Wyrównanie obrazu w centrum */
+  background-attachment: fixed; /* Ustawienie tła, które nie przesuwa się */
+  height: 100vh; /* Wysokość na całą wysokość okna */
+  margin: 0;
   position: relative;
 }
 

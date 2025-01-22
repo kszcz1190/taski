@@ -7,108 +7,94 @@
 .navbar {
   border-bottom-left-radius: 60px;
   border-bottom-right-radius: 60px;
-  background-color: #370c2e;
+  background-color: #9c8c7a;
   height: 100px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
 }
 
 .logo {
-  display: flex;
-  background-color: #ffecec;
-  border-bottom-left-radius: 60px;
-  border-top-right-radius: 60px;
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 148px;
-  height: 71px;
-  justify-content: center;
-  align-items: center;
-  font-size: 40px;
-  color: #dca0b5;
-  font-weight: bold;
+  color: white;
+  margin: 0 auto;
+  font-size: 30px;
+  font-weight: 500;
   font-family: "Montserrat", sans-serif;
 }
 
 .header {
-  background-color: #370c2e;
-  display: flex;
   margin: 0 auto;
-  font: bold 40px "Montserrat", sans-serif;
+  font: 200 25px "Montserrat", sans-serif;
   color: white;
 }
 
 .userPanel {
-  background-color: #dca0b5;
-  border-radius: 100px;
-  width: 50px;
-  height: 50px;
-  margin-right: 20px;
-  border: 5px solid white;
-  font-weight: bold;
-  font-size: 30px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
+  background-color: #9c8c7a;
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 20px;
 }
 
 .wrapper_menu {
-  background-color: #370c2e;
+  background-color: #9c8c7a;
   border-radius: 100px;
 }
-.dropdownMenu h3 {
-  padding: 10px;
-  text-align: center;
-  background-color: white !important;
+
+img {
+  width: 50px;
+  height: 50px;
+  margin: 10px 10px;
 }
 
-.dropdownMenu {
-  position: absolute;
-  top: 120px;
-  right: 10px;
-  width: 200px;
-  background-color: white;
-  border-radius: 20px;
+.dropdown_menu ul li:nth-child(1) {
+  margin-top: 30px;
 }
-.dropdownMenu ul,
-.dropdownMenu li,
-.dropdownMenu a {
-  padding: 10px;
-  background-color: white;
-  padding: 10px;
-  color: black !important;
-}
-.dropdownMenu li {
-  border-top: 1px solid #ccc;
-}
-.dropdownMenu li:hover,
-a:hover {
-  font-weight: bold;
-}
-
-.button_login {
-  position: absolute;
-  top: 20px;
-  right: 15px;
-  background-color: white;
-  border-radius: 100px;
-  padding: 10px;
-  border: none;
-}
-
-.button_login a {
-  background-color: white;
-  font-size: 20px;
-  font-weight: bold;
+.dropdown_menu ul li a {
   text-decoration: none;
-  border-radius: 100px;
+  color: white;
+}
+.dropdown_menu ul li a:hover {
   color: black;
 }
-.button_login a:hover {
-  color: blue;
-  font-weight: bold;
+
+.dropdown_menu {
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  background-color: #9c8c7a;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 10px 20px;
+  width: 250px;
+  overflow: hidden; /* Ukryj zawartość poza wysokością */
+  height: 0; /* Początkowa wysokość */
+  transition: height 0.5s ease; /* Animacja zmiany wysokości */
 }
 
-.dropdownMenu.inactive {
-  display: none;
+.dropdown_menu.inactive {
+  height: 0;
+}
+.dropdown_menu.active {
+  height: auto;
+}
+
+.menu {
+  position: absolute;
+  left: 15px;
+}
+.menu:hover {
+  cursor: pointer;
+}
+
+.first,
+.second,
+.third {
+  background-color: white;
+  width: 30px;
+  margin-top: 5px;
+  height: 4px;
 }

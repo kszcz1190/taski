@@ -1,0 +1,66 @@
+.choose_section {
+  margin: 50px auto;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+.choose_section h3 {
+  background-color: #f1dcdc;
+  padding: 10px;
+  border-radius: 30px;
+  margin-top: 20px;
+}
+.machines_list {
+  display: flex;
+  flex-direction: column;
+}
+.machines_list button.button_machines,
+.position_order button {
+  padding: 10px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+}
+.machines_list button.button_machines:hover,
+.position_order button:hover {
+  background-color: rgb(36, 35, 35);
+  color: white;
+  transition-duration: 0.2s;
+}
+
+.machine_section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.packing_section,
+.daily_schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.machines_wrap,
+.packing_wrap {
+  display: flex;
+  gap: 20px;
+}
+.packing_wrap form button {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+}
+.packing_wrap form button:hover {
+  background-color: #f1dcdc;
+  font-weight: bold;
+  color: #b4277e;
+  transition-duration: 0.2s;
+}
